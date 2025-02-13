@@ -8,13 +8,12 @@ namespace SimpleLambdaFunction;
 
 public class Function
 {
-    public APIGatewayProxyResponse FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
+    public Dictionary<string, object> FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
     {
-        return new APIGatewayProxyResponse
+        return new Dictionary<string, object>()
         {
-            StatusCode = 200,
-            Body = "Hello from Lambda",
-            Headers = new Dictionary<string, string> { { "Content-Type", "text/plain" } }
+            { "statusCode", 200 },
+            { "message", "Hello from Lambda" },
         };
     }
 }
